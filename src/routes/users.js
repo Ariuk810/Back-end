@@ -1,8 +1,8 @@
 import express from "express";
-import { getUsers } from "../resolvers/users/get.users";
-import { createUser } from "../resolvers/users/create-user";
-import { updateUser } from "../resolvers/users/update-user";
-import { deleteUser } from "../resolvers/delete-user";
+import { getUsers } from "../resolvers/users/get-user.js";
+import { createUser } from "../resolvers/users/create-user.js";
+import { updateUser } from "../resolvers/users/update-user.js";
+import { deleteUser } from "../resolvers/users/delete-user.js";
 
 export const router = express.Router();
 

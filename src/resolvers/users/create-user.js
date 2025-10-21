@@ -1,24 +1,13 @@
-export let users = [
-  {
-    id: "1",
-    username: "John",
-    phone: "99009900",
-  },
-  {
-    id: "2",
-    username: "Bob",
-    phone: "99112233",
-  },
-  {
-    id: "3",
-    username: "Jordan",
-    phone: "99114455",
-  },
-];
+import { userModel } from "../../model/user-model.js";
 
-export const createUser = (req, res) => {
+export const createUser = async (req, res) => {
   const newUser = req.body;
-  users.push(newUser);
+  console.log(newUser);
 
-  res.send("New user added!");
+  await userModel.create({
+    name: newUser.name,
+    email: newUser.email,
+    phone: newUser.phone,
+  });
+  res.status(200).json("success");
 };
