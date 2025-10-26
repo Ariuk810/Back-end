@@ -9,4 +9,4 @@ export const router = express.Router();
 router.get("/", getUsers);
 router.post("/", createUser);
 router.put("/", updateUser);
-router.delete("/:id", deleteUser);
+router.delete("/", deleteUser);

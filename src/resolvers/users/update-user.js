@@ -4,9 +4,9 @@ export const updateUser = async (req, res) => {
   const updatedUser = req.body;
 
   await userModel.findByIdAndUpdate(req.body.id, {
-    name: updateUser.name,
-    email: updateUser.email,
-    phone: updateUser.phone,
+    name: updatedUser.name,
+    email: updatedUser.email,
+    phone: updatedUser.phone,
   });
   res.send("User updated successfully!");
 };

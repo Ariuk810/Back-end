@@ -1,12 +1,8 @@
-export const deleteUser = (req, res) => {
-  const userId = req.params.id;
+import { userModel } from "../../model/user-model.js";
 
-  const initialLength = users.length;
-  users = users.filter((user) => user.id !== userId);
+export const deleteUser = async (req, res) => {
+  const deletedUser = req.body;
 
-  if (users.length < initialLength) {
-    res.send(`User with id ${userId} deleted successfully.`);
-  } else {
-    res.status(404).send("User not found.");
-  }
+  await userModel.findByIdAndDelete(deletedUser.id);
+  res.send("deleted user!!");
 };
