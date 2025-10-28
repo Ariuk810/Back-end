@@ -9,12 +9,13 @@ const UserSchema = new Schema({
   email: String,
   phone: Number,
   addres: String,
+  password: { type: String, require: true },
   role: { type: String, enum: ["User", "Admin"] },
   orderedFoods: { type: Schema.ObjectId, require: true, ref: `order` },
   ttl: Date,
   isVerified: Boolean,
-  createdAt: Date,
-  updatedAt: Date,
+  updatedAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
 });
 
 export const userModel = mongoose.model("user", UserSchema);
