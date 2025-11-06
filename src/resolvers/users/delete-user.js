@@ -7,8 +7,10 @@ export const deleteUser = async (req, res) => {
   try {
     jwt.verify(token, "secret-key");
     const id = req.params.id;
+    console.log(id);
 
     await userModel.findByIdAndDelete(id);
+
     res.send("User deleted successfully!");
   } catch (err) {
     console.log(err);
